@@ -30,7 +30,7 @@ class categoryController extends Controller
         ]);
         return redirect()->to("categories");
     }
-    public function edit($id){
+    public function edit(Request $request,$id){
 
         $cat = DB::table("categories")->where("id",$id)->first();// tra ve null neu ko co
         if($cat == null) return redirect()->to("categories");

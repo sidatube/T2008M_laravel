@@ -49,7 +49,7 @@
                                     <td>{{$cat->name}}</td>
                                     <td>{{$cat->created_at}}</td>
                                     <td>{{$cat->updated_at}}</td>
-                                    <td><a href="{{url("/categories/edit",["id"=>$cat->id])}}">Điều chỉnh</a></td>
+                                    <td><a class="btn btn-outline-success" href="{{url("/categories/edit",["id"=>$cat->id])}}">Điều chỉnh</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

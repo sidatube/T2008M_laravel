@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\LapController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,14 @@ use App\Http\Controllers\categoryController;
 |
 */
 
-//Route::get('/', [WebController::class,"home"]);
-//Route::get('/about-us', [WebController::class,"aboutUs"]);
-    Route::get('/', [LapController::class,"home"]);
-    Route::get('/addoredit', [LapController::class,"add"]);
-    Route::get('/save', [LapController::class,"savepro"]);
+    Route::get('/', [WebController::class,"home"]);
+    Route::get('/products', [ProductController::class,"all"]);
+    Route::get('/products/new', [ProductController::class,"new"]);
+    Route::post('/products/save', [ProductController::class,"save"]);
+    Route::post('/products/update/{id}', [ProductController::class,"update"]);
+    Route::get('/products/edit/{id}', [ProductController::class,"edit"]);
+    Route::get('/products/delete/{id}', [ProductController::class,"delete"]);
+    Route::get('/about-us', [WebController::class,"aboutUs"]);
     Route::get('/categories', [categoryController::class,"all"]);
     Route::get('/categories/new', [categoryController::class,"new"]);
     Route::post('/categories/save', [categoryController::class,"save"]);
