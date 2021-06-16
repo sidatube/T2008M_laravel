@@ -5,6 +5,7 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\LapController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,9 @@ use App\Http\Controllers\ProductController;
     Route::post('/categories/save', [categoryController::class,"save"]);
     Route::get('/categories/edit/{id}', [categoryController::class,"edit"]);
     Route::post('/categories/update/{id}', [categoryController::class,"update"]);
+    Route::get('/brands', [BrandController::class,"all"]);
+    Route::get('/brands/new', [BrandController::class,"new"]);
+    Route::post('/brands/save', [BrandController::class,"save"]);
+    Route::get('/brands/edit/{id}', [BrandController::class,"edit"]);
+    Route::post('/brands/update/{id}', [BrandController::class,"update"]);
+

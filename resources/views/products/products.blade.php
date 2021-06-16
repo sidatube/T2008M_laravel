@@ -40,7 +40,8 @@
                                 <th >Mô tả</th>
                                 <th>Giá</th>
                                 <th>Số lượng</th>
-                                <th>Thời điểm cập nhập</th>
+                                <th>Loại bánh</th>
+                                <th>Hãng bánh</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -58,10 +59,12 @@
                                         <img style="max-width: 100px" src="{{asset($product->image)}}">
                                     </td>
                                     @endif
-                                    <td width="300">{{$product->description}}</td>
-                                    <td>{{$product->price}}</td>
+                                    <td class="text-wrap" style="width: 30rem">{{$product->description}}</td>
+                                    <td>{{$product->price}} VND </td>
                                     <td>{{$product->qty}}</td>
-                                    <td>{{$product->updated_at}}</td>
+{{--                                    <td>{{$product->__get("category_name")}}</td>--}}
+                                    <td>{{$product->Category->__get("name")}}</td>
+                                    <td>{{$product->Brand->__get("name")}}</td>
 
                                     <td>
                                         <form action="{{url("/products/edit",["id"=>$product->id])}}" method="get">
