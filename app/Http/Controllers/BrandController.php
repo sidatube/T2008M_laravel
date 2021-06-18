@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +11,8 @@ class BrandController extends Controller
 {
     public function all(){
         //
-        $brands= Brand::all();
+//        $brands= Brand::all();
+        $brands=Brand::withCount("Products")->paginate(20);
         return view("brands.brands",[
             "brands"=>$brands
         ]);

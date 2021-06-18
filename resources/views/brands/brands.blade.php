@@ -37,6 +37,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Products Total</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th></th>
@@ -47,6 +48,7 @@
                                 <tr>
                                     <td>{{$brand->id}}</td>
                                     <td>{{$brand->name}}</td>
+                                    <td>{{$brand->products_count}}</td>
                                     <td>{{$brand->created_at}}</td>
                                     <td>{{$brand->updated_at}}</td>
                                     <td><a class="btn btn-outline-success" href="{{url("/brands/edit",["id"=>$brand->id])}}">Điều chỉnh</a></td>
@@ -56,6 +58,9 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        {!! $brands->links("vendor.pagination.default") !!}
+                    </div>
                 </div>
             </div>
         </section>

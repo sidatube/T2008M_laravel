@@ -88,6 +88,9 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        {!! $products->links("vendor.pagination.default") !!}
+                    </div>
                 </div>
             </div>
         </section>

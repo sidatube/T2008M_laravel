@@ -12,5 +12,8 @@ class Category extends Model
 //    protected $id ="id"; neu la id thif ko can khai bao nuawx
     protected $fillable=["name"];
 //    public $timestamps; //tu dong cap nhap create_at updated_at
+public function Products(){
+    return $this->hasMany(Product::class);
+}
 
 }

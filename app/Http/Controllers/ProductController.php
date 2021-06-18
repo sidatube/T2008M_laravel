@@ -16,7 +16,16 @@ class ProductController extends Controller
 //        $products= DB::table("products")->get();
 //        $products = Product::leftJoin("categories","categories.id","=","products.category_id")
 //            ->select("products.*","categories.name as category_name")->get();
-        $products=Product::with("Category")->with("Brand")->get();
+        $products=Product::with("Category")
+//            ->where("category=y_id","=0",1)
+//            ->whereDate("Created_at","2021-06-18")
+//                ->whereMonth("created_at",6)
+//                ->where("price",">",50000)
+//                ->where("name","LIKE","%đỏ%")// tìm kiếm
+//                ->orderBy("price","asc")
+//                ->limit(1)// Lấy 1 thằng
+//                ->skip(1)// Bỏ 1 thằng đầu tiên
+            ->with("Brand")->paginate(50);
 
         return view("products.products",[
            "products"=>$products,
@@ -129,7 +138,7 @@ class ProductController extends Controller
         return redirect()->to("/products");
     }
     public function delete($id){
-        DB::table("products")->where("id",$id)->delete();
+       Product::findOrFail($id)->delete();
         return redirect()->to("/products");
 
     }

@@ -11,8 +11,11 @@ class categoryController extends Controller
 {
     public function all(){
         //
-        $categories= Category::all();//tra ve object cua categories
+//        $categories= Category::all();//tra ve object cua categories
 //        $categories=DB::table("categories")->get();
+//        $categories = Category::withCount("Products")->get();
+        $categories = Category::withCount("Products")->paginate(10);
+
         return view("categories.cate",[
             "categories"=>$categories
         ]);
