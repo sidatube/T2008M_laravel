@@ -56,7 +56,7 @@
                                         Ảnh chưa cập nhập
                                     </td>
                                     <td @else>
-                                        <img style="max-width: 100px" src="{{asset($product->image)}}">
+                                        <img style="max-width: 100px" src="{{$product->GetImg()}}">
                                     </td>
                                     @endif
                                     <td class="text-wrap" style="width: 30rem">{{$product->description}}</td>

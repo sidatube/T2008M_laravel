@@ -37,19 +37,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url("/products")}}" class="nav-link">
+                        <a href="{{url("admin/products")}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Products</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url("/categories")}}" class="nav-link">
+                        <a href="{{url("admin/categories")}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Category</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url("/brands")}}" class="nav-link">
+                        <a href="{{url("admin/brands")}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Brand</p>
                         </a>

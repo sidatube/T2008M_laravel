@@ -70,10 +70,31 @@ class ProductController extends Controller
             "category_id.min"=>"Vui lòng chọn danh mục",
             "brand_id.min"=>"Vui lòng chọn danh mục",
         ]);
+        $image=null;
+        if ($request->has("image")){
+            $file = $request->file("image");
+//            $fileName= $file->getClientOriginalName();//lays ten gile
+            $extName= $file->getClientOriginalExtension();//lays tne duoi file
+            $fileName= time().".".$extName;
+            $size= $file->getSize();//lays size
+            $allow=["png","jpg","jpeg","gif"];
+            if (in_array($extName,$allow)){
+                if ($size< 30000000){
+                    try {
+                        $file->move("upload",$fileName);
+                        $image=$fileName;
+                    }catch (\Exception $e){
+
+                    }
+
+                }
+            }
+        }
+
         try {
             Product::create([
                 "name"=>$request->get("name"),
-                "image"=>$request->get("image"),
+                "image"=>$image,
                 "description"=>$request->get("description"),
                 "price"=>$request->get("price"),
                 "qty"=>$request->get("qty"),
@@ -125,10 +146,29 @@ class ProductController extends Controller
             "qty.required"=>"Vui lòng nhập sô lượng",
 
         ]);
+        if($request->has("image")){
+            $file = $request->file("image");
+//            $fileName= $file->getClientOriginalName();//lays ten gile
+            $extName= $file->getClientOriginalExtension();//lays tne duoi file
+            $fileName= time().".".$extName;
+            $size= $file->getSize();//lays size
+            $allow=["png","jpg","jpeg","gif"];
+            if (in_array($extName,$allow)){
+                if ($size< 30000000){
+                    try {
+                        $file->move("upload",$fileName);
+                        $image=$fileName;
+                    }catch (\Exception $e){
+
+                    }
+
+                }
+            }
+        }
         if ($product==null) return redirect()->to("/products");
         $product->update([
             "name"=>$request->get("name"),
-            "image"=>$request->get("image"),
+            "image"=>$image,
             "description"=>$request->get("description"),
             "price"=>$request->get("price"),
             "qty"=>$request->get("qty"),

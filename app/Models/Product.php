@@ -25,4 +25,10 @@ class Product extends Model
     public function Brand(){
         return $this->belongsTo(Brand::class);
     }
+    public function GetImg(){
+        if ($this->image){
+            return asset("upload/".$this->image);
+        }
+        return null;
+    }
 }

@@ -4,7 +4,7 @@
         <div class="container">
             <h2>Thêm category</h2>
             <div class=" col-md-6">
-                <form action="{{url("/products/update",["id"=>$product->id])}}" method="post">
+                <form action="{{url("/products/update",["id"=>$product->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <lable><h5>Tên sản phẩm:</h5></lable>
@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <lable><h5>Hình ảnh(chỉ link ảnh):</h5></lable>
-                        <input type="text" class="form-control" placeholder="Ảnh..." name="image" value="{{$product->image}}">
+                        <input type="file" class="form-control" placeholder="Ảnh..." name="image" value="{{$product->image}}">
                     </div>
                     <div class="form-group">
                         <lable><h5>Mô tả:</h5></lable>
